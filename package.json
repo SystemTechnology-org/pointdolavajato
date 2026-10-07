@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "node tests/full-suite.test.mjs",
+    "test:customer": "node tests/customer-booking-journey.test.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.117.2",
