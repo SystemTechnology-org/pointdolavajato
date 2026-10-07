@@ -15,6 +15,7 @@ import {
   AlertCircle,
   Plus,
   Sparkles,
+  Calendar,
 } from "lucide-react";
 import { Logo } from "@/components/layout/Logo";
 import { Button } from "@/components/ui/Button";
@@ -390,18 +391,28 @@ export default function AgendamentoPublicoPage() {
   return (
     <div className="min-h-screen bg-canvas text-slate-100 flex flex-col justify-between py-5 px-3.5 sm:px-6">
       <div className="max-w-md w-full mx-auto space-y-5">
-        {/* Header Discreto do Point do Coco */}
-        <header className="flex flex-col items-center text-center space-y-1.5 pt-1">
-          <Logo size="md" showText={false} href="/agendar" />
-          <div>
-            <h1 className="text-lg font-bold text-white tracking-tight flex items-center justify-center gap-1.5">
-              <span>Point do Coco</span>
-              <span className="w-2 h-2 rounded-full bg-brand-yellow"></span>
-            </h1>
-            <p className="text-[11px] text-muted-foreground">
-              Lava Jato Litoral • Guaraípe
-            </p>
+        {/* Header com Logo e Acesso a Meus Agendamentos */}
+        <header className="flex items-center justify-between pt-1 pb-3 border-b border-surface-border/50">
+          <div className="flex items-center gap-2.5">
+            <Logo size="sm" showText={false} href="/agendar" />
+            <div>
+              <h1 className="text-sm font-bold text-white tracking-tight flex items-center gap-1.5">
+                <span>Point do Coco</span>
+                <span className="w-2 h-2 rounded-full bg-brand-yellow" />
+              </h1>
+              <p className="text-[10px] text-muted-foreground">
+                Lava Jato Litoral • Guaraípe
+              </p>
+            </div>
           </div>
+
+          <Link
+            href="/meus-agendamentos"
+            className="text-xs text-brand-yellow hover:text-white flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-brand-yellow/30 bg-brand-yellow/10 hover:bg-brand-yellow/20 transition-all font-medium"
+          >
+            <Calendar className="w-3.5 h-3.5" />
+            <span>Meus Agendamentos</span>
+          </Link>
         </header>
 
         {/* ========================================================================= */}
@@ -490,6 +501,15 @@ export default function AgendamentoPublicoPage() {
               >
                 <Button variant="outline" className="w-full text-xs h-10 text-slate-300">
                   Visualizar / Gerenciar meu Agendamento
+                </Button>
+              </Link>
+
+              <Link
+                href={`/meus-agendamentos${whatsapp ? `?phone=${normalizePhone(whatsapp)}` : ""}`}
+                className="w-full block"
+              >
+                <Button variant="ghost" className="w-full text-xs h-9 text-brand-yellow hover:text-white hover:bg-brand-yellow/10">
+                  Ver todos os meus agendamentos →
                 </Button>
               </Link>
 

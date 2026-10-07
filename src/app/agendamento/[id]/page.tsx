@@ -11,6 +11,7 @@ import {
   Ban,
   MapPin,
   ExternalLink,
+  Calendar,
 } from "lucide-react";
 import { Logo } from "@/components/layout/Logo";
 import { Button } from "@/components/ui/Button";
@@ -340,6 +341,16 @@ export default function DetalhesAgendamentoPublicoPage() {
                 Seguir @pointdococolavajato no Instagram
               </Button>
             </a>
+
+            <Link
+              href={`/meus-agendamentos${appointment?.cliente_whatsapp ? `?phone=${normalizePhone(appointment.cliente_whatsapp)}` : ""}`}
+              className="w-full block"
+            >
+              <Button variant="ghost" className="w-full text-xs text-brand-yellow hover:text-white hover:bg-brand-yellow/10">
+                <Calendar className="w-3.5 h-3.5 mr-2" />
+                Ver todos os meus agendamentos
+              </Button>
+            </Link>
 
             <Link href="/agendar" className="w-full block">
               <Button variant="ghost" className="w-full text-xs text-muted-foreground hover:text-white">
